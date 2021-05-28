@@ -1,7 +1,21 @@
 import './Loading.scss'
-import { Link } from 'react-router-dom'
-import Search from './Search'
+import { Link, useHistory } from 'react-router-dom'
+import { useEffect } from 'react'
+
 function Loading() {
+    const history = useHistory()
+
+    function setTimer() {
+        let timer = setTimeout(() => console.log('start'), 2000)
+        return () => {
+            clearTimeout(timer)
+            history.push('/search')
+        }
+    }
+    useEffect(() => {
+        setTimer()
+    }, [])
+
     return (
         <div className="LoadingWrapper">
             <div>

@@ -4,6 +4,14 @@ $blue: #63c7ff;
     align-items: center;
     display: flex;
     justify-content: center;
+    text-align: center;
     background: $blue;
     height: 100%;
+    position: relative;
+}
+.getData {
+}
+.inputCity {
+    background: black;
+    color: aliceblue;
 }

@@ -1,7 +1,7 @@
 import './App.scss'
 import Home from './views/Home'
-import Search from './components/Search'
 import { Route, Switch } from 'react-router-dom'
+import Search from './views/Search'
 
 /**
  * 
@@ -10,7 +10,6 @@ import { Route, Switch } from 'react-router-dom'
     SCSS för styling
     Funktionella komponenter
     Statehantering med Redux
-
  * 
  */
 function App() {
