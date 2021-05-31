@@ -43,21 +43,18 @@ function Search() {
     async function fetchWeather() {
         let apiKey = '048595cbd3415a6616d06c7fa25b56b5'
         let city = document.querySelector('.inputCity').value
-        const r = /^[0-9]/
-        let response
+        // const r = /^[0-9]/
 
-        if (r.test(city)) {
-            response = await fetch(
-                `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-            )
-        } else {
-            let cordinates = document
-                .querySelector('.inputCity')
-                .value.split(' ')
-            let lat = cordinates[0]
-            let lon = cordinates[1]
-            response = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-        }
+        // if (r.test(city)) {
+        const response = await fetch(
+            `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+        )
+        //  } else {
+        // let cordinates = document.querySelector('.inputCity').value.split(' ')
+        // let lat = cordinates[0]
+        // let lon = cordinates[1]
+        // response = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        // // }
 
         const data = await response.json()
         console.log(data)
