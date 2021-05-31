@@ -10,7 +10,19 @@ $blue: #63c7ff;
 main{
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     flex-direction: column;
+    align-content: space-between;
+}
+img{
+margin-top: 40px;
+}
+p{
+    color: #ffffff;
+}
+.grader{
+    color: white;
+    font-size: 8em;
+    font-weight:normal;
 }

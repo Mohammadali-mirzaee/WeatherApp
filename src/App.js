@@ -2,7 +2,7 @@ import './App.scss'
 import Home from './views/Home'
 import { Route, Switch } from 'react-router-dom'
 import Search from './views/Search'
-import Sunny from './views/Sunny'
+import Weather from './views/Weather'
 /**
  * 
     Följ så noga som möjligt Figma mockup ( bifogad )
@@ -18,7 +18,7 @@ function App() {
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/search" component={Search} />
-                <Route path="/Sunny" component={Sunny} />
+                <Route path="/weather" component={Weather} />
             </Switch>
         </div>
     )

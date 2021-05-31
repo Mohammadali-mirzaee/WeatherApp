@@ -1,5 +1,7 @@
-import './Sunny.scss';
+import './Weather.scss';
+import sol from '../assets/sol.png'
 function Sunny() {
+    
     
     return (
         <div className="sunny">
@@ -26,6 +28,10 @@ function Sunny() {
             
             <main>
                 <p>SOLIGT</p>
+
+                <img src={sol} alt="image not found" />
+
+                <p className="grader">17</p>
                 
             </main>
 

@@ -1,3 +1,4 @@
+
 const initState = {
     weather: [],
 }
@@ -13,3 +14,5 @@ export const weatherReducer = (state = initState, action) => {
             return state
     }
 }
+
+export const getWeather = state => state.weather
