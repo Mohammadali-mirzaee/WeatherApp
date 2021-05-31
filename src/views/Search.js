@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-import './Search.scss';
-import { useState } from 'react';
-
-
-=======
 import './Search.scss'
 import { useState } from 'react'
->>>>>>> c3a7d094aef2db5dd6b31f936a60422795754fa3
+import { setWeather } from '../actions/weatherAction'
+import { useDispatch } from 'react-redux'
 
 function Search() {
+    const dispatch = useDispatch()
+
     function getCordinates() {
         let x = document.getElementById('gpsMessage')
         if (navigator.geolocation) {
@@ -30,7 +27,7 @@ function Search() {
         }
     }
     function handelClick() {
-        console.log('Hej')
+        fetchWeather()
     }
 
     const [state, setState] = useState({
@@ -41,6 +38,30 @@ function Search() {
         setState({
             [e.target.value]: e.target.value,
         })
+    }
+
+    async function fetchWeather() {
+        let apiKey = '048595cbd3415a6616d06c7fa25b56b5'
+        let city = document.querySelector('.inputCity').value
+        const r = /^[0-9]/
+        let response
+
+        if (r.test(city)) {
+            response = await fetch(
+                `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+            )
+        } else {
+            let cordinates = document
+                .querySelector('.inputCity')
+                .value.split(' ')
+            let lat = cordinates[0]
+            let lon = cordinates[1]
+            response = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+        }
+
+        const data = await response.json()
+        console.log(data)
+        dispatch(setWeather(data))
     }
 
     return (

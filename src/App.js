@@ -12,6 +12,7 @@ import Weather from './views/Weather'
     Statehantering med Redux
  * 
  */
+
 function App() {
     return (
         <div className="App">
