@@ -1,0 +1,16 @@
+$blue: #63c7ff;
+
+.sunny{
+    background: $blue;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}

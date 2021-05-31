@@ -1,0 +1,46 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\PHP\\project"
+		},
+		{
+			"path": "..\\..\\PHP\\php-animals"
+		},
+		{
+			"path": "..\\..\\PHP\\FormPhp"
+		},
+		{
+			"path": "..\\..\\slider"
+		},
+		{
+			"path": "..\\..\\vueProject\\my-portfolio"
+		},
+		{
+			"path": "..\\..\\node.js"
+		},
+		{
+			"path": "..\\..\\cart"
+		},
+		{
+			"path": "..\\..\\kaffe"
+		},
+		{
+			"path": "..\\..\\typescript"
+		},
+		{
+			"path": "..\\..\\countdown"
+		},
+		{
+			"path": "..\\cafe"
+		},
+		{
+			"path": "..\\..\\Next.js\\the-earliest"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "countdown"
+	}
+}
