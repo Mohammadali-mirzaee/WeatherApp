@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import './Search.scss';
-import { useState } from 'react';
-
-
-=======
 import './Search.scss'
 import { useState } from 'react'
->>>>>>> c3a7d094aef2db5dd6b31f936a60422795754fa3
 
 function Search() {
     function getCordinates() {
