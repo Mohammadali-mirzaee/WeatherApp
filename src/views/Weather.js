@@ -91,7 +91,12 @@ function Sunny() {
 
                     <p className="grader">{weather.current.temp}°</p>
 
-                    <p className="city">GÖTEBORG</p>
+                    <p className="city">
+                        {'Latitude ' +
+                            weather.lat +
+                            ' Longitude ' +
+                            weather.lon}
+                    </p>
                     <p className="time">07:37</p>
                     <table>
                         <tbody>

@@ -48,9 +48,12 @@ function Search() {
     async function fetchWeather() {
         let apiKey = '768b3d2e108901bd5d3f1094802db7de'
         let city = document.querySelector('.inputCity').value
+
+        //REGULAR EXPRESSION
         const r = /^[0-9]/
 
         let response
+
         if (!r.test(city)) {
             response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
@@ -62,7 +65,7 @@ function Search() {
             let lat = cordinates[0]
             let lon = cordinates[1]
             response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${apiKey}`
             )
         }
 
