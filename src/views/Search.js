@@ -1,10 +1,12 @@
 import './Search.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { setWeather } from '../actions/weatherAction'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 function Search() {
     const dispatch = useDispatch()
+    const history = useHistory()
 
     function getCordinates() {
         let x = document.getElementById('gpsMessage')
@@ -15,19 +17,22 @@ function Search() {
         }
 
         function showPosition(position) {
-            x.innerHTML =
-                'Latitude: ' +
-                position.coords.latitude +
-                '<br>Longitude:' +
-                position.coords.longitude
-
             document.querySelector(
                 '.inputCity'
             ).value = `${position.coords.latitude} ${position.coords.longitude}`
         }
     }
     function handelClick() {
-        fetchWeather()
+        let cordinates = document.querySelector('.inputCity').value.split(' ')
+        let lat = cordinates[0]
+        let lon = cordinates[1]
+
+        fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=768b3d2e108901bd5d3f1094802db7de`
+        )
+            .then((response) => response.json())
+            .then((weather) => dispatch(setWeather(weather)))
+        history.push('/weather/')
     }
 
     const [state, setState] = useState({
@@ -40,26 +45,44 @@ function Search() {
         })
     }
 
-    async function fetchWeather() {
-        let apiKey = '048595cbd3415a6616d06c7fa25b56b5'
-        let city = document.querySelector('.inputCity').value
-        // const r = /^[0-9]/
+    // async function fetchWeather() {
+    //     let apiKey = '768b3d2e108901bd5d3f1094802db7de'
+    //     let city = document.querySelector('.inputCity').value
+    //     // const r = /^[0-9]/
 
-        // if (r.test(city)) {
-        const response = await fetch(
-            `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-        )
-        //  } else {
-        // let cordinates = document.querySelector('.inputCity').value.split(' ')
-        // let lat = cordinates[0]
-        // let lon = cordinates[1]
-        // response = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-        // // }
+    //     // if (r.test(city)) {
+    //     const response = await fetch(
+    //         `api.openweathermap.org/data/2.5/weather?q=stockholm&appid=768b3d2e108901bd5d3f1094802db7de`
+    //     )
+    //     //  } else {
+    //     // let cordinates = document.querySelector('.inputCity').value.split(' ')
+    //     // let lat = cordinates[0]
+    //     // let lon = cordinates[1]
+    //     // response = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    //     // // }
 
-        const data = await response.json()
-        console.log(data)
-        dispatch(setWeather(data))
-    }
+    //     const data = await response.json()
+    //     dispatch(setWeather(data))
+    // }
+
+    useEffect(() => {
+        // async function fetchWeather() {
+        //     const response = await fetch(
+        //         `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+        //     )
+        //     const data = await response.json()
+        //     console.log(data)
+        //     dispatch(setWeather(data))
+        // }
+        // let apiKey = '768b3d2e108901bd5d3f1094802db7de'
+        // let city = document.querySelector('.inputCity').value
+        // fetch(
+        //     `https://api.openweathermap.org/data/2.5/onecall?lat=57.708870&lon=11.974560&exclude=minutely&appid=768b3d2e108901bd5d3f1094802db7de`
+        // )
+        //     .then((response) => response.json())
+        //     .then((weather) => console.log(weather))
+        // fetchWeather()
+    }, [])
 
     return (
         <div className="search">
