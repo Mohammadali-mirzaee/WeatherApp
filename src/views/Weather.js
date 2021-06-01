@@ -83,7 +83,7 @@ function Sunny() {
                     <circle cx="24" cy="24" r="21.6667" fill="white" />
                 </g>
             </svg>
-            {weather ? (
+            {weather.current && (
                 <main>
                     <p>SOLIGT</p>
 
@@ -306,8 +306,6 @@ function Sunny() {
                         </tbody>
                     </table>
                 </main>
-            ) : (
-                <div> loading</div>
             )}
         </div>
     )
